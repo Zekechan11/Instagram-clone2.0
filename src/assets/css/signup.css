@@ -1,0 +1,248 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    min-height: 680px;
+    width: 100%;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.or {
+    margin: 15px 0;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.or span {
+    margin: 0px 10px;
+    height: 0;
+    width: 50%;
+    border-top: 1px solid #ccc;
+}
+
+/* INputt */
+
+.form-group {
+    margin: 0 40px 6px;
+}
+
+.animate-input {
+    height: 36px;
+    border: 1px solid var(--box-border-color);
+    border-radius: 3px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgb(250, 250, 250);
+    font-size: 12px;
+}
+
+.animate-input span {
+    position: absolute;
+    left: 8px;
+    height: 100%;
+    font-size: 12px;
+    line-height: 36px;
+    color: var(--txt-second-color);
+    transform-origin: left;
+    transition: transform 0.1s ease-in-out;
+    pointer-events: none;
+}
+
+.animate-input input {
+    width: 100%;
+    height: 100%;
+    padding: 9px 8px 7px;
+    border: 0;
+    outline: 0;
+    background-color: var(--box-bg);
+    color: var(--txt-color);
+}
+
+.animate-input.active span {
+    transform: scale(0.83333) translateY(-10px);
+}
+
+.animate-input.active input {
+    padding: 14px 0 2px 8px;
+}
+
+.animate-input button {
+    color: var(--txt-color);
+    border: 0;
+    outline: 0;
+    display: inline;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: transparent;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+}
+
+.animate-input.active button {
+    display: inline;
+}
+
+/* Button */
+
+.btn-group {
+    padding: 8px 40px;
+}
+
+.btn-login {
+    width: 250px;
+    border: 1px solid transparent;
+    outline: 0;
+    background-color: rgb(24, 158, 235);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
+    bottom: 2px;
+    margin-bottom: 20px;
+}
+
+button:disabled {
+    background-color: rgba(0, 149, 246, 0.3);
+}
+/* ENd */
+
+.HaveAccount {
+    margin-top: 10px;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    background: #fff;
+}
+
+.HaveAccount p{
+    margin: 15px;
+    font-size: 14px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .login{
+    position: relative;
+    right: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #0095f6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+
+#getTheApp {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.images img {
+    width: 150px;
+}
+
+.facebook {
+    font-size: 1.2rem;
+    margin-right: 3px;
+}
+
+/* SIGN UP FORM */
+/* SIGN UP FORM */
+/* SIGN UP FORM */
+
+.SignUpContainer {
+    flex-direction: column;
+}
+
+.signUpForm {
+    width: 350px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    margin-top: 10px;
+}
+
+.signUpForm .logo {
+    margin: 40px auto 10px;
+    width: 175px;
+}
+
+.signUpForm p {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    width: 75%;
+}
+
+.signUpForm .loginFacebook {
+    width: 75%;
+    padding: 5px 0px;
+    background: #0095f6;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+}
+
+/* .signUpForm form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* .signUpForm .span_text,
+.resetForm .span_text {
+    margin: 20px 0;
+    width: 80%;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    text-align: center;
+} */
+
+/* .SignUpContainer .HaveAccount {
+    width: 100%;
+} */
+
+/* .SignUpContainer .images {
+    width: 100%;
+} */
+
+
+

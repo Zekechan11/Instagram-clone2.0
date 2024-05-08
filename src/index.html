@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../src/images/favicon.png">
+  <title>Instagram</title>
+  <link rel="stylesheet" href="assets/css/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="lib/session.js" async></script>
+  <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+  <div class="post_page">
+    <div class="nav_menu">
+
+      <div class="nav">
+        <div class="logo">
+          <a href="index.html">
+            <img src="../images/instagram.png" class="d-block d-lg-none small-logo" alt="logo">
+            <img src="../images/logo_menu.png" class="d-none d-lg-block text-logo" alt="logo">
+          </a>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li>
+              <a href="index.html" class="active">
+                <img src="../images/accueil.png" alt="" href="index.html">
+                <span class="d-none d-lg-block">Home</span>
+              </a>
+            </li>
+            <li id="search_icon">
+              <a href="search.html">
+                <img src="../images/search.png" alt="">
+                <span class="d-none d-lg-block search">Search</span>
+              </a>
+            </li>
+            <li>
+              <a href="explore.html">
+                <img src="../images/compass.png">
+                <span class="d-none d-lg-block ">Explore</span>
+              </a>
+            </li>
+            <li>
+              <a href="reels.html">
+                <img src="../images/video.png">
+                <span class="d-none d-lg-block ">Reels</span>
+              </a>
+            </li>
+            <li>
+              <a href="messages.html">
+                <img src="../images/send.png">
+                <span class="d-none d-lg-block ">Messages</span>
+              </a>
+            </li>
+            <li class="notification_icon">
+              <a href="#">
+                <img src="../images/love.png">
+                <span class="d-none d-lg-block ">Notifications</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-bs-toggle="modal">
+                <img src="../images/tab.png">
+                <!-- <span class="d-none d-lg-block">Create</span> -->
+                <span class="d-none d-lg-block" onclick="x.showModal()">Create</span>
+              </a>
+            </li>
+            <li>
+              <a href="profile.html">
+                <img class="circle story" src="../images/profile_img.jpg">
+                <!-- <span class="d-none d-lg-block ">Profile</span> -->
+                <span :href="'profile.html?uid='+uid" class="d-none d-lg-block ">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="more">
+          <div class="btn-group dropup">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../images/menu.png">
+              <span class="d-none d-lg-block ">More</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">
+                  <img src="../images/reglage.png">
+                  <span style="position: relative;right: 140px;">Settings</span>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <img src="../images/history.png">
+                  <span style="position: relative;right: 110px;">Your activity</span>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <img src="../images/save-instagram.png">
+                  <span style="position: relative;right: 150px;">Saved</span>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <img src="../images/moon.png">
+                  <span style="position: relative;right: 68px;">Switch apperance</span>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <img src="../images/problem.png">
+                  <span style="position: relative;right: 70px;">Report a problem</span>
+                </a></li>
+              <li><a class="dropdown-item bold_border" href="#">
+                  <span>Switch accounts</span>
+                </a></li>
+              <li><a class="dropdown-item">
+                  <!-- <span>Log out</span> -->
+                  <span type="submit" onclick="signoutUser()">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAin -->
+    <main class="main-container">
+      <section class="content-container">
+        <div class="content">
+          <div class="stories__content">
+            <button class="story story--has-story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                    <defs>
+                      <linearGradient y2="0" x2="1" y1="1" x1="0" id="--story-gradient">
+                        <stop offset="0" stop-color="#f09433" />
+                        <stop offset="0.25" stop-color="#e6683c" />
+                        <stop offset="0.5" stop-color="#dc2743" />
+                        <stop offset="0.75" stop-color="#cc2366" />
+                        <stop offset="1" stop-color="#bc1888" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+
+                <div class="story__picture">
+                  <img src="../images/story.png" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">Story</span>
+            </button>
+
+            <button class="story story--has-story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div class="story__picture">
+                  <img src="../src/images/dizon.jpg" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">dizon</span>
+            </button>
+            <button class="story story--has-story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div class="story__picture">
+                  <img src="../src/images/ivan.png" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">Ivan</span>
+            </button>
+            <button class="story story--has-story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div class="story__picture">
+                  <img src="../src/images/michael.jpg" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">michael</span>
+            </button>
+            <button class="story story--has-story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div class="story__picture">
+                  <img src="../src/images/owen.jpg" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">owen</span>
+            </button>
+            <button class="story story--has-story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div class="story__picture">
+                  <img src="../src/images/facebook-icon.png" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">Facebook</span>
+            </button>
+            <button class="story">
+              <div class="story__avatar">
+                <div class="story__border">
+                  <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div class="story__picture">
+                  <img src="../images/moon.png" alt="User Picture" />
+                </div>
+              </div>
+              <span class="story__user">Moon</span>
+            </button>
+          </div>
+          <button class="stories__right-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#fff"
+                d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z">
+              </path>
+            </svg>
+          </button>
+
+          <div class="posts" id="homepage">
+            <article class="post" v-for="item in contents" :key="item.id">
+              <div class="post__header" >
+                <div class="post__profile">
+                  <a href="#" class="post__avatar">
+                    <img src="../src/images/ivan.png" alt="User Picture" />
+                  </a>
+                    <li style="list-style: none;">
+                      <a :href="'profile.html?uid=' + item.user_id" style="text-decoration: none;color: black;">{{ item.fullname }}</a>
+                      <!-- <a href="#" class="post__user">Ivan</a> -->
+                    </li>
+
+                </div>
+
+                <button class="post__more-options" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="../images/show_more.png" alt="" width="15" height="15" fill="none">
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item" @click="editContent(item.post_id)">
+                      Edit
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" @click="deletePost(item.post_id)">
+                      Delete
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="post__content">
+                <div class="post__medias">
+                  <div class="slider">
+                    <div class="slides">
+                      <template v-if="item.filenames && item.filenames.length > 0">
+                        <template v-for="(filename, index) in item.filenames">
+                          <img v-if="item.filenames" :src="'..' + filename" :key="index" alt="" width="615" height="400">
+                        </template>
+                      </template>                      
+                    </div>
+                    <button class="prev">❮</button>
+                    <button class="next">❯</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="post__footer">
+                <div class="post__buttons">
+
+                  <button class="post__button">
+                    <img src="../images/love.png" alt="" width="24" height="24" fill="none">
+                  </button>
+
+                  <button class="post__button">
+                    <img src="../images/bubble-chat.png" alt="" width="24" height="24" fill="none">
+                  </button>
+
+                  <button class="post__button">
+                    <img src="../images/send.png" alt="" width="24" height="24" fill="none">
+                  </button>
+
+                  <div class="post__indicators"></div>
+
+                  <button class="post__button post__button--align-right">
+                    <img src="../images/save-instagram.png" alt="" width="24" height="24" fill="none">
+                  </button>
+                </div>
+
+                <div class="post__infos">
+                  <div class="post__likes">
+                    <a href="#" class="post__likes-avatar">
+                      <img src="../src/images/michael.jpg" alt="User Picture" />
+                    </a>
+
+                    <span>Liked by
+                      <a class="post__name--underline" href="#">michael</a> and
+                      <a href="#">73 others</a></span>
+                  </div>
+
+                  <div class="post__description">
+                    <span>
+                      NO one can beat me!!
+                    </span>
+                  </div>
+
+                  <div class="">
+                    <form id="commentme">
+                      <input type="hidden" id="user_iddd" name="userid">
+                      <input type="hidden" id="post_iddd" name="postid">
+                      <input type="text" class="form-control" name="commenttext" placeholder="Add Comment">
+                      <button style="position: relative;left: 540px;border: none;background-color: white;bottom: 30px;font-size: 14px;color: rgb(9, 43, 235);">Post</button>
+                    </form>
+                  </div>
+
+                  <span class="post__date-time">
+                    <span style="position: relative;right: 8px;bottom: 3px;font-size: 30px;color: black;">.</span>
+                    - {{ item.created_at}}
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <section class="side-menu">
+          <div class="side-menu__user-profile">
+            <a href="#" class="side-menu__user-avatar">
+              <img src="../src/images/dizon.jpg" alt="User Picture" />
+            </a>
+            <div class="side-menu__user-info">
+              <a href="#">Dizon</a>
+              <span>Nicole Dizon</span>
+            </div>
+            <button class="side-menu__user-button">Switch</button>
+          </div>
+
+          <div class="side-menu__suggestions-section">
+            <div class="side-menu__suggestions-header">
+              <h2>Suggestions for You</h2>
+              <button>See All</button>
+            </div>
+            <div class="side-menu__suggestions-content">
+              <div class="side-menu__suggestion">
+                <a href="#" class="side-menu__suggestion-avatar">
+                  <img src="../images/accueil.png" alt="User Picture" />
+                </a>
+                <div class="side-menu__suggestion-info">
+                  <a href="#" style="text-transform: capitalize;">Josep</a>
+                  <span>Followed by zeke and 9 others</span>
+                </div>
+                <button class="side-menu__suggestion-button">Follow</button>
+              </div>
+              <div class="side-menu__suggestion">
+                <a href="#" class="side-menu__suggestion-avatar">
+                  <img src="../images/emogi.png" alt="User Picture" />
+                </a>
+                <div class="side-menu__suggestion-info">
+                  <a href="#" style="text-transform: capitalize;">Edison</a>
+                  <span>Followed by user1, user2 and 3 others</span>
+                </div>
+                <button class="side-menu__suggestion-button">Follow</button>
+              </div>
+              <div class="side-menu__suggestion">
+                <a href="#" class="side-menu__suggestion-avatar">
+                  <img src="../src/images/owen.jpg" alt="User Picture" />
+                </a>
+                <div class="side-menu__suggestion-info">
+                  <a href="#" style="text-transform: capitalize;">Owen</a>
+                  <span>Followed by user1 and 3 others</span>
+                </div>
+                <button class="side-menu__suggestion-button">Follow</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="side-menu__footer">
+            <div class="side-menu__footer-links">
+              <ul class="side-menu__footer-list">
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">About</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Help</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Press</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">API</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Jobs</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Privacy</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Terms</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Locations</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Top Accounts</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Hashtag</a>
+                </li>
+                <li class="side-menu__footer-item">
+                  <a class="side-menu__footer-link" href="#">Language</a>
+                </li>
+              </ul>
+            </div>
+
+            <span class="side-menu__footer-copyright">&copy; 2021 instagram from facebook</span>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+
+
+
+  <div class="flex h-screen overflow-hidden">
+    <div class="flex-none w-80 border-r border-gray-300">
+      <ul class="menu text-2xl place-content-center pt-5">
+        <div id="nav">
+          <li>
+            <button onclick="x.showModal()">Create</button>
+          </li>
+          <li>
+            <a href="search.html">Search</a>
+          </li>
+          <li>
+            <a :href="'profile.html?uid='+uid">Profile</a>
+          </li>
+          <li>
+            <button type="submit" onclick="signoutUser()">Logout</button>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="flex-auto">
+      <div class="navbar bg-base-100 border-b border-gray-300">
+        <a class="btn btn-ghost text-lg">Homepage</a>
+      </div>
+
+      <dialog id="x" onclose="clearMind()" class="bg-blue-200 rounded-md p-4">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title w-100 fs-5 d-flex align-items-end justify-content-between" id="exampleModalLabel">
+              <span class="title_create">Create new post</span>
+            </h1>
+          </div>
+          <button class="close-btn" onclick="x.close();"
+            style="position: relative; left: 400px; bottom: 35px;">x</button>
+          <form id="postForm" class="mt-4">
+            <input type="hidden" name="imguid" id="imguid">
+            <textarea name="content" cols="50" rows="1" class="border border-gray-300"
+              style="padding-top: 5px;position: relative;bottom: 20px;" placeholder="Enter your post"></textarea>
+            <div class="flex items-center mb-2">
+              <label for="fileInput" class="mr-2 cursor-pointer"></label>
+              <input type="file" id="fileInput" name="img[]" accept="image/*" multiple class="hidden">
+            </div>
+            <button type="submit" class="post-btn">POST</button>
+          </form>
+        </div>
+      </dialog>
+
+
+
+      <div class="overflow-auto h-dvh scrollbar-hide">
+        <center>
+          <div id="homepage">
+            <ul>
+              <li v-for="item in contents" :key="item.id">
+                <!-- <label>
+                  <a :href="'profile.html?uid='+item.user_id">{{ item.fullname }}</a>
+                  - {{ item.created_at}}
+                  <template v-if="item.user_id == curuser">
+                    <button @click="editContent(item.post_id)">Edit</button>
+                    <button @click="deletePost(item.post_id)">Delete</button>
+                  </template>
+                </label>
+
+                <p v-if="!item.isEditing">{{ item.content }}</p>
+                <div v-else>
+                  <input v-model="item.editedContent">
+                  <button @click="saveEditedContent(item)">Save</button>
+                  <button @click="cancelEditContent(item)">Cancel</button>
+                </div> -->
+
+                <!-- <template v-if="item.filenames && item.filenames.length > 0">
+                  <template v-for="(filename, index) in item.filenames">
+                    <img v-if="filename" :src="'..' + filename" :key="index" alt="" width="600" height="400">
+                  </template>
+                </template> -->
+
+                <!-- <button><a>Like</a></button>
+                <button>
+                  <a :href="'comment.html?post=' + item.post_id + '&u=' + item.user_id">Comment</a>
+                </button>
+                <button><a>Share</a></button>
+                <p class="border-b border-gray-300"></p>
+              </li> -->
+            </ul>
+          </div>
+        </center>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- <script src="../script.js"></script> -->
+  <script src="lib/services/upload.js"></script>
+  <script src="lib/services/post.js"></script>
+  <script src="lib/home.js" type="module" defer></script>
+  <script src="lib/nav.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

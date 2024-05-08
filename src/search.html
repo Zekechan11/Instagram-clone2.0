@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+    <script src="lib/search.js" defer></script>
+</head>
+<body>
+    <div id="search">
+        <a href="index.html">Home</a>
+        <input type="text" v-model="searchText" placeholder="Enter search term">
+        <button><a>Search</a></button>
+        <div v-if=" searchText.length > 0">
+            <li v-for="item in resultsFiltered" :key="item.id">
+                <a :href="'profile.html?uid='+item.user_id">{{ item.fullname }}</a>
+                <button>Follow</button>
+            </li>
+        </div>
+        <div v-else>
+            No results found.
+        </div>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment</title>
+    <script src="lib/session.js" async></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+    <script src="lib/comment.js" defer></script>
+</head>
+<body>
+    <div>
+    </div>
+
+    <a href="index.html">X</a>
+
+    <div id="comment">
+        <ul>
+            <li v-for="item in comments" :key="item.id">
+                <label>{{ item.fullname }} - {{ item.created_at }}</label>
+
+                <template v-if="item.user_id == owner">
+                    <button @click="editComment(item.comment_id)">Edit</button>
+                    <button @click="deleteComment(item.comment_id)">Delete</button>
+                </template>
+
+                <p v-if="!item.isEditing">{{ item.comment_text }}</p>
+                
+                <div v-else>
+                    <input v-model="item.editedComment">
+                    <button @click="saveEditedComment(item)">Save</button>
+                    <button @click="cancelEdit(item)">Cancel</button>
+                </div>
+                <p class="border-b border-gray-300"></p>
+            </li>
+        </ul>
+    </div>    
+
+    <div>
+        <form id="commentme">
+            <input type="hidden" id="user_iddd" name="userid">
+            <input type="hidden" id="post_iddd" name="postid">
+            <textarea name="commenttext" cols="30" rows="2"></textarea>
+            <button>Comment</button>
+        </form>
+    </div>
+
+    <script>
+
+        window.onload = function() {
+          const urlParams = new URLSearchParams(window.location.search);
+          const postId = urlParams.get('post');
+          const uId = localStorage.getItem('user_id');
+          document.getElementById("post_iddd").value = postId;
+          document.getElementById("user_iddd").value = uId;
+        };
+        document.getElementById('commentme').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('../api/comment/create_comment.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+
+
+        
+    </script>
+</body>
+</html>

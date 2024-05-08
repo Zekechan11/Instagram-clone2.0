@@ -1,0 +1,141 @@
+/**colors****/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+
+.post_page {
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+@media screen and (max-width: 768px) {
+    .post_page {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+}
+
+.nav {
+    z-index: 200;
+    position: relative;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+    min-height: 100vh;
+    position: fixed;
+    padding: 30px 80px 20px 24px;
+    border-right: 1px solid rgb(219, 219, 219);
+}
+
+.nav .small-logo {
+    width: 24px;
+    margin-bottom: 25px;
+}
+
+.nav .text-logo {
+    width: 105px;
+    height: auto;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 5em;
+    list-style: none;
+    margin-bottom: 120px;
+}
+
+.menu ul li {
+    margin-bottom: 33px;
+}
+
+.menu ul li a {
+    color: rgb(38, 38, 38);
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    font-weight: 400;
+    align-items: center;
+    text-decoration: none;
+}
+
+.menu ul li a.active {
+    font-weight: 500;
+}
+
+.menu ul li a img {
+    margin-right: 15px;
+    width: 24px;
+    height: auto;
+}
+
+.menu ul li a img.circle {
+    border-radius: 30px;
+}
+
+.menu ul li a span {
+    padding-right: 15px;
+    font-size: 16px;
+}
+
+
+/* MORE */
+.more img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.more .dropup button {
+    display: flex;
+    flex-direction: row;
+    border: transparent;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.more .dropup ul li a {
+    border-bottom: 2px solid rgb(219, 219, 219);
+    padding-bottom: 10px;
+    font-family: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.more .dropup ul li a.bold_border {
+    border-top: 4px solid rgb(219, 219, 219);
+}
+
+.more .dropup ul li a img {
+    margin-right: 5em;
+    width: 24px;
+}
+
+.dropup .dropdown-toggle::after {
+    display: none;
+}
+
+.hide_img {
+    display: none !important;
+  }
+

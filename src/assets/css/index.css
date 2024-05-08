@@ -1,0 +1,49 @@
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#x {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+.modal-content {
+ position: relative;
+}
+
+.close-btn {
+ width: 30px;
+ height: 30px;
+ border: 2px solid red;
+ border-radius: 50%;
+ background-color: transparent;
+ color: black;
+ font-size: 1rem;
+ cursor: pointer;
+
+}
+
+.close-btn:hover {
+ background-color: red;
+}
+
+.post-btn {
+ height: 30px;
+ width: 65px;
+ position: relative;
+ left: 350px;
+ background-color: black;
+ color: white;
+}
+ 
