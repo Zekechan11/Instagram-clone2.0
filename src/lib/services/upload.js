@@ -19,6 +19,7 @@ function handleFileUpload(event) {
         data: formData,
         processData: false,
         contentType: false,
+        dataType : "json",
         success: function(data) {
             console.log(data);
             $('#imguid').val(data.img_uid);
