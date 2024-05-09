@@ -1,22 +1,25 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slides img');
+document.addEventListener("DOMContentLoaded", function() {
+  const slides = document.querySelector(".slides");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  let currentIndex = 0;
+  const totalSlides = slides.children.length;
 
-function showSlides() {
-  slides.forEach(slide => slide.style.display = 'none');
-  slideIndex = (slideIndex + slides.length) % slides.length;
-  slides[slideIndex].style.display = 'block';
-}
+  nextBtn.addEventListener("click", function() {
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+      slideTo(currentIndex);
+    }
+  });
 
-function nextSlide() {
-  slideIndex++;
-  showSlides();
-}
+  prevBtn.addEventListener("click", function() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      slideTo(currentIndex);
+    }
+  });
 
-function prevSlide() {
-  slideIndex--;
-  showSlides();
-}
-
-showSlides();
-document.querySelector('.next').addEventListener('click', nextSlide);
-document.querySelector('.prev').addEventListener('click', prevSlide);
+  function slideTo(index) {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+});

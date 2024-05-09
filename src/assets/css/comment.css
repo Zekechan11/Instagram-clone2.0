@@ -1,0 +1,137 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Container Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close-btn {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Comment List Styles */
+.comment-list {
+    list-style: none;
+}
+
+.comment-item {
+    margin-bottom: 20px;
+}
+
+/* Comment Info Styles */
+.comment-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.timestamp {
+    color: #888;
+}
+
+/* Comment Actions Styles */
+.comment-actions {
+    margin-bottom: 5px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+/* Comment Text Styles */
+.comment-text {
+    margin-bottom: 10px;
+}
+
+/* Edit Comment Form Styles */
+.edit-comment {
+    margin-bottom: 10px;
+}
+
+.edit-input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.save-btn,
+.cancel-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+}
+
+/* Divider Styles */
+.divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Comment Form Styles */
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.comment-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}

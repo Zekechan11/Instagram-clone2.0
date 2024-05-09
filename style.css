@@ -395,8 +395,9 @@ img {
   color: var(--text-light);
   text-transform: uppercase;
   position: relative;
-  bottom: 650px;
+  bottom: 665px;
   left: 170px;
+  width: 120px;
 }
 
 /* Side Menu */
