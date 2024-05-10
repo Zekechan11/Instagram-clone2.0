@@ -49,6 +49,9 @@ a:hover {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    position: relative;
+    top: 10px;
+    left: 400px;
 }
 
 #search button:hover {

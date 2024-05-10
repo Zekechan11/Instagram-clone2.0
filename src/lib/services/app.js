@@ -57,9 +57,9 @@ checkSigninInput = () => {
 }
 
 // darkmode toggle
-// darkmode_toggle.onclick = (e) => {
-//     e.preventDefault()
-//     let body = document.querySelector('body')
-//     body.classList.toggle('dark')
-//     darkmode_toggle.innerHTML = body.classList.contains('dark') ? 'Lightmode' : 'Darkmode'
-// }
+darkmode_toggle.onclick = (e) => {
+    e.preventDefault()
+    let body = document.querySelector('body')
+    body.classList.toggle('dark')
+    darkmode_toggle.innerHTML = body.classList.contains('dark') ? 'Lightmode' : 'Darkmode'
+}

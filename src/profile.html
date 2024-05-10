@@ -4,52 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="assets/css/profile.css">
     <script src="lib/session.js" async></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="lib/profile.js" defer></script>
-    <link rel="stylesheet" href="assets/css/profile.css">
-
-    
 </head>
 <body>
-  <a href="index.html">Home</a>
-    <div id="profile">
-        <img src="../src/images/ivan.png" alt="profile" width="100" height="100">
-        <label for="name">{{ items.fullname }}</label>
-
-        <div v-if="!cuser">
-            <button @click="followToggle()">
-                {{ following ? 'Unfollow' : 'Follow' }}
-            </button>    
-        </div>
-
-        <div>
-            <ul>
-                <li v-for="item in mepost" :key="item.id">
-                  <label>
-                    <a :href="'profile.html?uid='+item.user_id">{{ item.fullname }}</a>
-                    - {{ item.created_at}}
-                    <button onclick="x.showModal()">Edit</button>
-                    <button @click="deletePost(item.post_id)">Delete</button>
-                  </label>  
-                  <p>{{ item.content }}</p>
-                  
-                  <template v-if="item.filenames && item.filenames.length > 0">
-                    <template v-for="(filename, index) in item.filenames">
-                      <img v-if="filename" :src="'..' + filename" :key="index" alt="" width="600" height="400">
-                    </template>
-                  </template>
-                  
-                  <button><a>Like</a></button>
-                  <button>
-                    <a :href="'comment.html?post=' + item.post_id + '&u=' + item.user_id">Comment</a>
-                  </button>
-                  <button><a>Share</a></button>
-                  <p class="border-b border-gray-300"></p>
-                </li>
-              </ul>
-        </div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="profile">
+    <div class="profile-header">
+      <img src="https://avatars.githubusercontent.com/u/133362311?v=4" alt="profile" width="100" height="100">
+      <h1>{{ items.fullname }}</h1>
+      <div v-if="!cuser">
+        <button @click="followToggle()" class="follow-button">
+          {{ following ? 'Unfollow' : 'Follow' }}
+        </button>
+      </div>
     </div>
+
+    <div class="post-section">
+      <ul>
+
+        <li v-for="item in mepost" :key="item.id" class="post-item">
+          <div class="post-header">
+            <a :href="'profile.html?uid='+item.user_id">{{ item.fullname }}</a>
+            <span class="post-date">{{ item.created_at }}</span>
+          </div>
+          <p>{{ item.content }}</p>
+
+
+          <template v-if="item.filenames && item.filenames.length > 0" class="image-gallery">
+            <template v-for="(filename, index) in item.filenames">
+              <img v-if="filename" :src="'..' + filename" :key="index" alt="" width="600" height="400">
+            </template>
+          </template>
+
+          <div class="post-actions">
+            <button onclick="x.showModal()" class="edit-button">Edit</button>
+            <button @click="deletePost(item.post_id)" class="delete-button">Delete</button>
+            <button class="like-button">Like</button>
+            <button :href="'comment.html?post=' + item.post_id + '&u=' + item.user_id" class="comment-button">Comment</button>
+            <button class="share-button">Share</button>
+          </div>
+          <hr class="post-divider">
+        </li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>

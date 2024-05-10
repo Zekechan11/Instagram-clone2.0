@@ -1,77 +1,86 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* styles.css */
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header img {
+    border-radius: 50%;
+  }
+  
+  .profile-header h1 {
+    margin-left: 20px;
+  }
+  
+  .post-item {
+    background-color: #fff;
     padding: 20px;
-}
-
-a {
+    margin-bottom: 20px;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .post-header a {
     text-decoration: none;
     color: #333;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.profile-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.profile-info img {
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.profile-info label {
-    font-size: 1.2rem;
-}
-
-.post {
-    margin-bottom: 30px;
-}
-
-.post label {
-    display: flex;
-    align-items: center;
+    font-weight: bold;
+  }
+  
+  .post-date {
+    margin-left: auto;
+    color: #888;
+  }
+  
+  .image-gallery {
+    margin-top: 10px;
+  }
+  
+  .image-gallery img {
+    margin-right: 10px;
     margin-bottom: 10px;
-}
-
-.post label button {
-    margin-left: 10px;
-}
-
-.post p {
-    margin-bottom: 10px;
-}
-
-.post img {
-    max-width: 100%;
-    margin-bottom: 10px;
-}
-
-.post button a {
-    color: #333;
-}
-
-.post button a:hover {
-    text-decoration: underline;
-}
-
-.border-b {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
-}
+  }
+  
+  .post-actions button {
+    margin-right: 10px;
+  }
+  
+  .post-divider {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+  }
+  

@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comment</title>
+    <link rel="stylesheet" href="assets/css/comment.css">
     <script src="lib/session.js" async></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
     <script src="lib/comment.js" defer></script>
-    <link rel="stylesheet" href="assets/css/comment.css">
 </head>
 <body>
-
-     <div class="container">
+    <div class="container">
         <header>
             <h1>Comments</h1>
             <a href="index.html" class="close-btn">X</a>
@@ -28,7 +27,7 @@
 
                     <template v-if="item.user_id == owner">
                         <div class="comment-actions">
-                            <button @click="editComment(item.comment_id)" class="edit-btn">Edit</button>
+                            <button @click="editComment(item.comment_id)" class="edit-btn float-end">Edit</button>
                             <button @click="deleteComment(item.comment_id)" class="delete-btn">Delete</button>
                         </div>
                     </template>
